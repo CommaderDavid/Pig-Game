@@ -32,3 +32,8 @@
   border: 5px solid green;
   padding: 10px;
 }
+
+.jumbotron {
+  text-align: center;
+  background-color: #ff99cc;
+}
