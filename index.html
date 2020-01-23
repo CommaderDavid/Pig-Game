@@ -15,27 +15,29 @@
       </div>
       <div id="start-menu">
         <form id="menus">
-          <div class="row">
-            <div class="col-md-6">
-              <select id="dice-number">
-                <option value="1">One Dice</option>
-                <option value="2">Two Dice</option>
-              </select>
-            </div>
-            <div class="col-md-6">
-              <select id="computer-difficulty">
-                <option value="easy">Easy</option>
-                <option value="hard">Hard</option>
-              </select>
-            </div>
+          <div class="dice">
+            <h2>How many Dice?</h2>
+            <select id="dice-number">
+              <option value="1">One Dice</option>
+              <option value="2">Two Dice</option>
+            </select>
           </div>
-          <h2>Press Start!</h2>
-          <button type="submit" class="btn btn-primary">Start</button>
+          <div class="difficulty">
+            <h2>What Computer Difficulty?</h2>
+            <select id="computer-difficulty">
+              <option value="easy">Easy</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <div class="start">
+            <h2>Press Start!</h2>
+            <button type="submit" class="btn btn-primary">Start</button>
+          </div>
         </form>
       </div>
       <div class="main-game">
         <div id="game-display">
-          
+
           <button type="button" class="btn btn-danger">Roll the Dice!</button>
           <button type="button" class="btn btn-success">Hold your rolls</button>
         </div>
