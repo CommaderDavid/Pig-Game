@@ -1,5 +1,15 @@
-.main-game {
+#main-game {
   display: none;
+}
+
+#one-dice {
+  display: none;
+  width: 300px;
+}
+
+#two-dice {
+  display: none;
+  width: 300px;
 }
 
 .dice {

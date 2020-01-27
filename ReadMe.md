@@ -5,7 +5,7 @@
 **Output**:
 * "4"
 
-2. on rolling a 1 the player loses all points and then next player
+2. on rolling a 1 the player loses all points and then next player plays
 **Input**:
 * Click to roll!
 **Output**:

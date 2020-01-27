@@ -23,10 +23,10 @@
             </select>
           </div>
           <div class="difficulty">
-            <h2>What Computer Difficulty?</h2>
-            <select id="computer-difficulty">
-              <option value="easy">Easy</option>
-              <option value="hard">Hard</option>
+            <h2>Player or Computer?</h2>
+            <select id="player-computer">
+              <option value="player">Player</option>
+              <option value="computer">Computer</option>
             </select>
           </div>
           <div class="start">
@@ -35,11 +35,15 @@
           </div>
         </form>
       </div>
-      <div class="main-game">
+      <div id="main-game">
         <div id="game-display">
-
-          <button type="button" class="btn btn-danger">Roll the Dice!</button>
-          <button type="button" class="btn btn-success">Hold your rolls</button>
+          <img src="img/oneDice.jpg" alt="One dice" id="one-dice">
+          <img src="img/twoDice.jpg" alt="Two dice" id="two-dice">
+          <h3>Current Roll:<span id="current-side"></span></h3>
+          <button type="button" class="btn btn-danger" id="roll">Roll the Dice!</button>
+          <button type="button" class="btn btn-success" id="hold">Hold your rolls</button>
+          <h3>Player 1 total:<span id="player1-total"></span></h3>
+          <h3><span id="player-type"></span> total:<span id="player2-total"></span></h3>
         </div>
       </div>
     </div>
