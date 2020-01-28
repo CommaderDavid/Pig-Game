@@ -11,6 +11,8 @@ Dice.prototype.rollDice = function() {
 }
 // Front End
 $(document).ready(function() {
+  var pigRoll = new Dice();
+
   $("form#menus").submit(function(e) {
     e.preventDefault();
     var dices = $("select#dice-number").val();
@@ -22,7 +24,7 @@ $(document).ready(function() {
     if (players === "computer") {
       $("#player-type").append("Computer")
     } else {
-      $("#player-type").append("Player 2 ")
+      $("#player-type").append("Player 2")
     }
 
     if (dices === "1") {
@@ -33,7 +35,6 @@ $(document).ready(function() {
   })
 
   $("#roll").click(function() {
-    var pigRoll = new Dice();
     var currentRoll = pigRoll.rollDice();
     if (currentRoll === 1) {
       $("#current-side").empty().append(" Oh... Too bad!");
@@ -41,5 +42,9 @@ $(document).ready(function() {
       $("#current-side").empty().append(" " + currentRoll);
       console.log(pigRoll);
     }
+  })
+
+  $("#hold").click(function() {
+    
   })
 })
