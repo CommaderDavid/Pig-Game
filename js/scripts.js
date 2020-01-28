@@ -1,6 +1,7 @@
 // Back End
 function Dice() {
   this.number;
+  this.currentScore = 0;
 }
 
 Dice.prototype.rollDice = function() {
@@ -19,10 +20,12 @@ $(document).ready(function() {
   })
 
   $("#roll").click(function() {
-    var currentRoll = new Dice();
-    if (currentRoll.rollDice() === 1) {
-      $("#current-side").empty().append("Oh... Too bad!");
+    var pigRoll = new Dice();
+    var currentRoll = pigRoll.rollDice();
+    if (currentRoll === 1) {
+      $("#current-side").empty().append(" Oh... Too bad!");
+    } else {
+      $("#current-side").empty().append(" " + currentRoll);
     }
-    console.log(currentRoll.rollDice());
   })
 })
