@@ -5,7 +5,9 @@ function Dice() {
 }
 
 Dice.prototype.rollDice = function() {
-  return Math.floor(Math.random() * 6) + 1;
+  var score = Math.floor(Math.random() * 6) + 1;
+  this.currentScore += score;
+  return score;
 }
 // Front End
 $(document).ready(function() {
@@ -26,6 +28,7 @@ $(document).ready(function() {
       $("#current-side").empty().append(" Oh... Too bad!");
     } else {
       $("#current-side").empty().append(" " + currentRoll);
+      console.log(pigRoll);
     }
   })
 })
