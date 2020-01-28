@@ -18,7 +18,18 @@ $(document).ready(function() {
 
     $("#start-menu").hide();
     $("#main-game").show();
-    $("#one-dice").show();
+
+    if (players === "computer") {
+      $("#player-type").append("Computer")
+    } else {
+      $("#player-type").append("Player 2 ")
+    }
+
+    if (dices === "1") {
+      $("#one-dice").show();
+    } else {
+      $("#two-dice").show();
+    }
   })
 
   $("#roll").click(function() {
