@@ -1,17 +1,25 @@
 // Back End
 function Dice() {
   this.number;
-  this.currentScore = 0;
 }
 
-Dice.prototype.rollDice = function() {
+Dice.prototype.rollDice = function(player) {
   var score = Math.floor(Math.random() * 6) + 1;
-  this.currentScore += score;
+  player.currentScore += score;
+  if (score === 1) {
+    player.currentScore *= 0;
+  }
   return score;
+}
+
+function PlayerScore() {
+  this.currentScore = 0;
 }
 // Front End
 $(document).ready(function() {
   var pigRoll = new Dice();
+  var player1 = new PlayerScore();
+  var player2 = new PlayerScore();
 
   $("form#menus").submit(function(e) {
     e.preventDefault();
@@ -35,16 +43,16 @@ $(document).ready(function() {
   })
 
   $("#roll").click(function() {
-    var currentRoll = pigRoll.rollDice();
+    var currentRoll = pigRoll.rollDice(player1);
+    console.log(player1.currentScore);
     if (currentRoll === 1) {
       $("#current-side").empty().append(" Oh... Too bad!");
     } else {
       $("#current-side").empty().append(" " + currentRoll);
-      console.log(pigRoll);
     }
   })
 
   $("#hold").click(function() {
-    
+
   })
 })
