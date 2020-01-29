@@ -12,6 +12,14 @@
   width: 300px;
 }
 
+#turn {
+  display: none;
+}
+
+#winner {
+  display: none;
+}
+
 .dice {
   font-size: 60px;
   float: left;

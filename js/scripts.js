@@ -61,5 +61,9 @@ $(document).ready(function() {
   $("#hold").click(function() {
     $("#player1-total").empty().append(player1.addScore(player1));
     console.log(player1.totalScore);
+    if (player.totalScore >= 100) {
+      $("#winner").show();
+      $("#winner").empty().append("Player 1 Wins!");
+    }
   })
 })
