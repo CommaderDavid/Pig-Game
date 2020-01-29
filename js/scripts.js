@@ -14,6 +14,12 @@ Dice.prototype.rollDice = function(player) {
 
 function PlayerScore() {
   this.currentScore = 0;
+  this.totalScore = 0;
+}
+
+PlayerScore.prototype.addScore = function(player) {
+  player.totalScore += player.currentScore;
+  return player.totalScore;
 }
 // Front End
 $(document).ready(function() {
@@ -53,6 +59,7 @@ $(document).ready(function() {
   })
 
   $("#hold").click(function() {
-
+    $("#player1-total").empty().append(player1.addScore(player1));
+    console.log(player1.totalScore);
   })
 })
