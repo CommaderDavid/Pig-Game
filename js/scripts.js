@@ -14,12 +14,13 @@ Dice.prototype.rollDice = function(player, turn) {
 }
 
 Dice.prototype.tempReset = function(player) {
-  player.tempScore *= 0;
+  player.tempScore = 0;
 }
 
-function PlayerScore() {
+function PlayerScore(name) {
   this.tempScore = 0;
   this.totalScore = 0;
+  this.name = name;
 }
 
 PlayerScore.prototype.addScore = function(player) {
@@ -37,8 +38,8 @@ PlayerTurn.prototype.switchTurn = function() {
 // Front End
 $(document).ready(function() {
   var pigRoll = new Dice();
-  var player1 = new PlayerScore();
-  var player2 = new PlayerScore();
+  var player1 = new PlayerScore("Player 1");
+  var player2 = new PlayerScore("Player 2");
   var turn = new PlayerTurn();
 
   $("form#menus").submit(function(e) {
@@ -63,13 +64,14 @@ $(document).ready(function() {
   })
 
   var pigFlip;
-  if (turn.currentPlayer === false) {
-    pigFlip = player1
-  } else {
-    pigFlip = player2
-  }
 
   $("#roll").click(function() {
+    if (turn.currentPlayer === false) {
+      pigFlip = player1;
+    } else {
+      pigFlip = player2;
+    }
+
     var currentRoll = pigRoll.rollDice(pigFlip, turn);
     var currentTotal = pigFlip.tempScore;
 
@@ -84,12 +86,12 @@ $(document).ready(function() {
 
   $("#hold").click(function() {
     if (turn.currentPlayer === false) {
-      $("#player1-total").empty().append(pigFlip.addScore(pigFlip));
+      $("#player1-total").html(pigFlip.addScore(pigFlip));
     } else {
-      $("#player2-total").empty().append(pigFlip.addScore(pigFlip));
+      $("#player2-total").html(pigFlip.addScore(pigFlip));
     }
+
     pigRoll.tempReset(pigFlip);
-    console.log(pigFlip);
     turn.switchTurn();
 
     $("#current-side").empty();
@@ -97,7 +99,7 @@ $(document).ready(function() {
 
     if (pigFlip.totalScore >= 100) {
       $("#winner").show();
-      $("#winner").empty().append("Player 1 Wins!");
+      $("#winner").empty().append(pigFlip.name + " Wins!");
     }
   })
 })
