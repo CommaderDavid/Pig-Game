@@ -5,20 +5,25 @@ function Dice() {
 
 Dice.prototype.rollDice = function(player) {
   var score = Math.floor(Math.random() * 6) + 1;
-  player.currentScore += score;
+  player.tempScore += score;
   if (score === 1) {
-    player.currentScore *= 0;
+    this.tempReset(player);
   }
   return score;
 }
 
+Dice.prototype.tempReset = function(player) {
+  player.tempScore *= 0;
+}
+
 function PlayerScore() {
-  this.currentScore = 0;
+  this.tempScore = 0;
   this.totalScore = 0;
+  this.currentTurn = 1;
 }
 
 PlayerScore.prototype.addScore = function(player) {
-  player.totalScore += player.currentScore;
+  player.totalScore += player.tempScore;
   return player.totalScore;
 }
 // Front End
@@ -50,17 +55,23 @@ $(document).ready(function() {
 
   $("#roll").click(function() {
     var currentRoll = pigRoll.rollDice(player1);
-    console.log(player1.currentScore);
+    var currentTotal = player1.tempScore;
+
     if (currentRoll === 1) {
       $("#current-side").empty().append(" Oh... Too bad!");
+      $("#current-score").empty().append("Loooossser!");
     } else {
       $("#current-side").empty().append(" " + currentRoll);
+      $("#current-score").empty().append(currentTotal);
     }
   })
 
   $("#hold").click(function() {
     $("#player1-total").empty().append(player1.addScore(player1));
-    console.log(player1.totalScore);
+    pigRoll.tempReset(player1);
+    $("#current-side").empty();
+    $("#current-score").empty();
+    
     if (player1.totalScore >= 100) {
       $("#winner").show();
       $("#winner").empty().append("Player 1 Wins!");
