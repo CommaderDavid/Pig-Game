@@ -103,8 +103,12 @@ $(document).ready(function() {
   $("#hold").click(function() {
     if (turn.currentPlayer === false) {
       $("#player1-total").html(pigFlip.addScore(pigFlip));
+      $("#player2-total").removeClass("current-player");
+      $("#player1-total").addClass("current-player");
     } else {
       $("#player2-total").html(pigFlip.addScore(pigFlip));
+      $("#player1-total").removeClass("current-player");
+      $("#player2-total").addClass("current-player");
     }
 
     pigRoll.tempReset(pigFlip);

@@ -18,12 +18,16 @@
   display: none;
 }
 
-#player1-total {
-  background-color: #0066ff
+/* #player1-total {
+  background-color: #ffffff;
 }
 
 #player2-total {
-  background-color: #ff0000
+  background-color: #ffffff;
+} */
+
+.current-player {
+  background-color: #33cc33;
 }
 
 #winner {
