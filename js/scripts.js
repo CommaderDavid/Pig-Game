@@ -50,16 +50,11 @@ $(document).ready(function() {
     $("#start-menu").hide();
     $("#main-game").show();
 
-    if (players === "computer") {
-      $("#player-type").append("Computer")
-    } else {
+    if (players === "player") {
       $("#player-type").append("Player 2")
-    }
 
     if (dices === "1") {
       $("#one-dice").show();
-    } else {
-      $("#two-dice").show();
     }
   })
 

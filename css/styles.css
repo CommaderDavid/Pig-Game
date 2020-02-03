@@ -7,9 +7,11 @@
   width: 300px;
 }
 
-#two-dice {
+#dice-side {
   display: none;
   width: 300px;
+  float: right;
+  margin: 15px;
 }
 
 #turn {
