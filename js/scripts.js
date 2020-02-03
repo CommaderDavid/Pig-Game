@@ -52,6 +52,7 @@ $(document).ready(function() {
 
     if (players === "player") {
       $("#player-type").append("Player 2")
+    }
 
     if (dices === "1") {
       $("#one-dice").show();
@@ -76,6 +77,26 @@ $(document).ready(function() {
     } else {
       $("#current-side").empty().append(" " + currentRoll);
       $("#current-score").empty().append(currentTotal);
+    }
+
+    if (currentRoll === 1) {
+      $(".dice-side").hide();
+      $("#side1").show();
+    } else if (currentRoll === 2) {
+      $(".dice-side").hide();
+      $("#side2").show();
+    } else if (currentRoll === 3) {
+      $(".dice-side").hide();
+      $("#side3").show();
+    } else if (currentRoll === 4) {
+      $(".dice-side").hide();
+      $("#side4").show();
+    } else if (currentRoll === 5) {
+      $(".dice-side").hide();
+      $("#side5").show();
+    } else if (currentRoll === 6) {
+      $(".dice-side").hide();
+      $("#side6").show();
     }
   })
 
