@@ -1,3 +1,10 @@
+# Pig Game
+#### Practice on Constructors for Epicodus **By David Boedigheimer**
+#### Date: 2-3-2020
+
+### Description
+This program is based off the dice game know as Pig Game. This program is created with JavaScript and jQuery. It is put together by constructs and objects that carry the randomization and the addition of the points.
+
 ### BBD Process
 1. the dice only has points between 2-6
 **Input**:
